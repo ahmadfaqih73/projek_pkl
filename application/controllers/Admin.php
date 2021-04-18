@@ -22,19 +22,19 @@ class Admin extends CI_Controller
                 $data['user'] = $this->db->get_where('user', ['email' =>
                 $this->session->userdata('email')])->row_array();
 
-                $bulan = $this->input->post('bulan');
+                // $bulan = $this->input->post('bulan');
 
-                if (isset($bulan)) {
-                        $q_bulan = $bulan;
-                } else {
-                        $q_bulan = 'MONTH(CURRENT_DATE())';
-                }
-                // Ambil pemasukan
-                $q_pemasukan = $this->db->query('SELECT SUM(transaksi.bayar) AS pemasukan FROM transaksi where MONTH(transaksi.tanggal) = ' . $q_bulan . '')->row()->pemasukan;
-                $q_pembelian = $this->db->query('SELECT SUM(pembelian.harga_total) AS pengeluaran FROM pembelian where MONTH(pembelian.tanggal) = ' . $q_bulan . '')->row()->pengeluaran;
+                // if (isset($bulan)) {
+                //         $q_bulan = $bulan;
+                // } else {
+                //         $q_bulan = 'MONTH(CURRENT_DATE())';
+                // }
+                // // Ambil pemasukan
+                // $q_pemasukan = $this->db->query('SELECT SUM(transaksi.bayar) AS pemasukan FROM transaksi where MONTH(transaksi.tanggal) = ' . $q_bulan . '')->row()->pemasukan;
+                // $q_pembelian = $this->db->query('SELECT SUM(pembelian.harga_total) AS pengeluaran FROM pembelian where MONTH(pembelian.tanggal) = ' . $q_bulan . '')->row()->pengeluaran;
 
-                $data['pemasukan'] = $q_pemasukan;
-                $data['pengeluaran'] = $q_pembelian;
+                // $data['pemasukan'] = $q_pemasukan;
+                // $data['pengeluaran'] = $q_pembelian;
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
