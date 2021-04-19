@@ -14,8 +14,9 @@
             <input type="text" class="form-control" name="Nama_mhs" required="">
         </div>
         <div class="form-group">
+         
             <label for="varchar">Nama file</label>
-            <input type="file" class="form-control" name="filename">
+            <input type="file" name="filename">
 
         </div>
         <button type="button" class="btn btn-warning float-left" onclick="window.history.back(-1)">Kembali</button>

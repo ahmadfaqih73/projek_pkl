@@ -10,7 +10,7 @@ class Teknik_Informatika extends CI_Model {
 		return $q_read;
 	}
 
-	public function insert()
+	public function insertfile()
 	{
 		
 	}
