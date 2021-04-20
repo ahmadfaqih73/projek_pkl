@@ -28,7 +28,7 @@ class TIF extends CI_Controller
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
-                $this->load->view('Teknik_Informatika/TIF', $data);
+                $this->load->view('Teknik_Informatika/TIF', $data, array('error' => ' '));
                 $this->load->view('templates/footer');
         }
         public function viewadd()
@@ -40,28 +40,38 @@ class TIF extends CI_Controller
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
-                $this->load->view('Teknik_Informatika/add_TIF', $data);
+                $this->load->view('Teknik_Informatika/add_TIF');
                 $this->load->view('templates/footer');
         }
 
         public function add()
         {
+                // $nim         = $this->input->post('Nim');
+                // $nama_mahasiswa         = $this->input->post('Nama_mhs');
                 $config['upload_path']          = './uploads/';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                $config['allowed_types']        = 'pdf|jpg|png';
+                $config['max_size']             = 0;
+                // $config['max_width']            = 1024;
+                // $config['max_height']           = 768;
 
                 $this->load->library('upload', $config);
 
-                if (!$this->upload->do_upload('userfile')) {
+                if (!$this->upload->do_upload('nama_file')) {
                         $error = array('error' => $this->upload->display_errors());
 
-                        $this->load->view('upload_form', $error);
+                        // $this->load->view('Teknik_Informatika', $error);
                 } else {
-                        $data = array('upload_data' => $this->upload->data());
+                        $upload_data = $this->upload->data();
 
-                        $this->load->view('upload_success', $data);
+
+
+                        // $data = array(
+                        //         'nim' => $nim,
+                        //         'nama_mahasiswa' => $nama_mahasiswa,
+                        //         'nama_file' => $upload_data['file_name']
+                        // );
+                        // $hasil = $this->db->insert('mhs_file', $data);
+                        print_r($upload_data);
                 }
         }
 }
