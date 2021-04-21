@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Teknik_Informatika extends CI_Model {
+class Teknik_Informatika extends CI_Model
+{
 
 	public function read()
 	{
@@ -12,6 +13,14 @@ class Teknik_Informatika extends CI_Model {
 
 	public function insertfile()
 	{
+	}
+	public function hapus_mhs_tif($id)
+	{
+		 $this->db->delete('mhs_tif', ['Id_mhs_tif' => $id]);
 		
+	}
+	public function getMhs_tif($id)
+	{
+		return $this->db->get_where('mhs_tif', ['Id_mhs_tif' => $id])->row_array();
 	}
 }
