@@ -46,52 +46,16 @@ class TIF extends CI_Controller
 
         public function add()
         {
-                $id = $this->input->post('ID');
-                $nim         = $this->input->post('Nim');
-                $nama_mahasiswa         = $this->input->post('Nama_mhs');
-                // var_dump($nim);
-                // die();
-                $config['upload_path']          = './uploads/';
-                $config['allowed_types']        = 'pdf|jpg|png';
-                $config['max_size']             = 0;
-                // $config['max_width']            = 1024;
-                // $config['max_height']           = 768;
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('filename')) {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        // $this->load->view('Teknik_Informatika', $error);
-                } else {
-                        $upload_data = $this->upload->data();
-
-                        $data = array(
-                                'id_mhs_tif' => $id,
-                                'nim' => $nim,
-                                'nama_mahasiswa' => $nama_mahasiswa,
-                                'nama_file' => $upload_data['file_name']
-                        );
-                        // var_dump($data);
-                        // die();
-                        $hasil = $this->db->insert('mhs_tif', $data);
-                        if ($hasil) {
-                                $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
-  <strong>Sukses!</strong> Berhasil menambahkan data baru...
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>');
-                                redirect('TIF', 'refresh');
-                        } else {
-                                redirect('TIF', 'refresh');
-                        }
-                        // print_r($hasil);
-                }
+                $this->Teknik_Informatika->insert_tif();
+                $this->session->set_flashdata('message', '<div class="alert
+            alert-danger" role="alert">data succes 
+            </div>');
+                redirect('TIF');
         }
 
         public function update_mhs_tif()
         {
+                $this->Teknik_Informatika->updateTIF();
         }
         public function hapus_mahasiswa_tif($id)
         {
@@ -115,52 +79,5 @@ class TIF extends CI_Controller
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('Teknik_Informatika/detail', $data);
                 $this->load->view('templates/footer');
-        }
-
-        public function update_TIF()
-        {
-                $id = $this->input->post('id');
-                $nim         = $this->input->post('Nim');
-                $nama_mahasiswa         = $this->input->post('Nama_mhs');
-                // var_dump($nim);
-                // die();
-                $config['upload_path']          = './uploads/';
-                $config['allowed_types']        = 'pdf|jpg|png';
-                $config['max_size']             = 0;
-                // $config['max_width']            = 1024;
-                // $config['max_height']           = 768;
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('filename')) {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        // $this->load->view('Teknik_Informatika', $error);
-                } else {
-                        $upload_data = $this->upload->data();
-
-                        $data = array(
-                                'id_mhs_tif' => $id,
-                                'nim' => $nim,
-                                'nama_mahasiswa' => $nama_mahasiswa,
-                                'nama_file' => $upload_data['file_name']
-                        );
-                        $this->db->where('Id_mhs_tif', $id);
-                        $q_update = $this->db->update('mhs_tif', $data);
-                        // var_dump($data);
-                        // die();
-                        if ($q_update) {
-                                $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
-  <strong>Berhasil!</strong> Data sukses diupdate...
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>');
-                                redirect('TIF', 'refresh');
-                        } else {
-                                redirect('TIF', 'refresh');
-                        }
-                        // print_r($hasil);
-                }
         }
 }

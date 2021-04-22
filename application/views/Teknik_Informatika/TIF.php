@@ -44,7 +44,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="col-md-6" method="post" action="<?php echo base_url('TIF/update_TIF') ?>">
+                                    <form class="col-md-6" method="post" action="<?php echo base_url('TIF/update_mhs_tif') ?>">
 
                                         <!-- Id Pelanggan -->
                                         <input type="hidden" name="id" value="<?php echo $value['Id_mhs_tif'] ?>">
