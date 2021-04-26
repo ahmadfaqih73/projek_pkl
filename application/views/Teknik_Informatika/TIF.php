@@ -13,6 +13,7 @@
         <thead>
             <tr>
                 <th>No.</th>
+                <th>Foto Mahasiswa</th>
                 <th>Nim</th>
                 <th>Nama Mahasiswa</th>
                 <th>Nama file</th>
@@ -28,10 +29,10 @@
             ?>
                 <tr>
                     <td><?php echo $no ?></td>
+                    <td><?php echo $value['foto'] ?></td>
                     <td><?php echo $value['nim'] ?></td>
                     <td><?php echo $value['nama_mahasiswa'] ?></td>
                     <td><?php echo $value['nama_file'] ?></td>
-
 
                     <!-- Modal -->
                     <div class="modal fade" id="updateTIF<?= $value['Id_mhs_tif'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,7 +45,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="col-md-6" method="post" action="<?php echo base_url('TIF/update_mhs_tif') ?>">
+
+                                    <!--                                     <?php echo form_open_multipart('TIF/update_mhs_tif') ?> -->
+
+                                    <form class="col-md-6" enctype="multipart/form-data" method="post" action="<?php echo base_url('TIF/update_mhs_tif') ?>">
 
                                         <!-- Id Pelanggan -->
                                         <input type="hidden" name="id" value="<?php echo $value['Id_mhs_tif'] ?>">
@@ -57,34 +61,39 @@
                                             <label>Nama mahasiswa</label>
                                             <input type="text" class="form-control" name="nama_mahasiswa" required="" value="<?php echo $value['nama_mahasiswa'] ?>">
                                         </div>
-                                        <div?>
+                                        <div>
                                             <label for="varchar">Nama file</label>
-                                            <input type="file" name="filename" required="" value="<?php echo $value['nama_file'] ?>">
+                                            <input class="float-right" type="file" name="filename" value="<?php echo $value['nama_file'] ?>">
+                                            <a class="float-left" target="_blank" href="<?php echo base_url('uploads/' . $value['nama_file']) ?>"><?php echo $value['nama_file'] ?></a>
+                                            <input type="hidden" name="oldFiles" value="<?php echo $value['nama_file'] ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success float-right">Update data</button>
+                                        </div>
+                                    </form>
+                                    <!-- <?php echo form_close(); ?> -->
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-success float-right">Update data</button>
-                                </div>
-                                </form>
                             </div>
                         </div>
                     </div>
-</div>
 
 
-<td>
-    <a href="<?= base_url(); ?>TIF/lihat_TIF/<?= $value['Id_mhs_tif']; ?> " class=" fas fa-eye badge badge-primary float-right">detail</a>
-    <a href="" class="fas fa-edit badge badge-pill badge-success" data-toggle="modal" data-target="#updateTIF<?= $value['Id_mhs_tif'] ?>">edit</a>
-    <a href="<?= base_url('TIF/hapus_mahasiswa_tif/' . $value['Id_mhs_tif']) ?> " class="fas fa-trash badge badge-pill badge-danger">delete</a>
-</td>
+                    <td>
+                        <a href="<?= base_url(); ?>TIF/lihat_TIF/<?= $value['Id_mhs_tif']; ?> " class=" fas fa-eye badge badge-primary"> detail</a>
 
-<!-- <td><a href="<?php echo base_url('pelanggan/hapus/' . $value['id_pelanggan']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data pelanggan <?php echo $value['nama_pelanggan'] ?> ?')">Remove</a></td> -->
-</tr>
-<?php $no++;
+                        <a href="" class="fas fa-edit badge badge-pill badge-success" data-toggle="modal" data-target="#updateTIF<?= $value['Id_mhs_tif'] ?>"> edit</a>
+
+                        <a href="<?= base_url('TIF/hapus_mahasiswa_tif/' . $value['Id_mhs_tif']) ?> " class="fas fa-trash badge badge-pill badge-danger"> delete</a>
+                    </td>
+
+                    <!-- <td><a href="<?php echo base_url('pelanggan/hapus/' . $value['id_pelanggan']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data pelanggan <?php echo $value['nama_pelanggan'] ?> ?')">Remove</a></td> -->
+                </tr>
+            <?php $no++;
             } ?>
 
-</tbody>
-</table>
+        </tbody>
+    </table>
 
 
 

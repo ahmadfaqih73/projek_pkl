@@ -20,10 +20,16 @@
         <input type="file" name="filename" required="">
 
 </div>
-<!-- </div> -->
-<button type="button" class="btn btn-warning float-left" onclick="window.history.back(-1)">Kembali</button>
-<button type="submit" class="btn btn-success float-right">Tambah data</button>
 
-<?php echo form_close() ?>
+<div?>
+    <label for="varchar">foto</label>
+    <input type="file" name="filename" required="">
 
-</div>
+    </div>
+    <!-- </div> -->
+    <button type="button" class="btn btn-warning float-left" onclick="window.history.back(-1)">Kembali</button>
+    <button type="submit" class="btn btn-success float-right">Tambah data</button>
+
+    <?php echo form_close() ?>
+
+    </div>
