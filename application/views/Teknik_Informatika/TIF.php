@@ -67,6 +67,12 @@
                                             <a class="float-left" target="_blank" href="<?php echo base_url('uploads/' . $value['nama_file']) ?>"><?php echo $value['nama_file'] ?></a>
                                             <input type="hidden" name="oldFiles" value="<?php echo $value['nama_file'] ?>">
                                         </div>
+                                        <div>
+                                            <label for="varchar">foto</label>
+                                            <input class="float-right" type="file" name="foto_mhs" value="<?php echo $value['foto'] ?>">
+                                            <a class="float-left" target="_blank" href="<?php echo base_url('uploads/' . $value['foto']) ?>"><?php echo $value['foto'] ?></a>
+                                            <input type="hidden" name="oldFoto" value="<?php echo $value['foto'] ?>">
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-success float-right">Update data</button>

@@ -15,15 +15,15 @@
         <input type="text" class="form-control" name="Nama_mhs" required="">
     </div>
     <!-- <div class="form-group"> -->
-    <div?>
+    <div>
         <label for="varchar">Nama file</label>
         <input type="file" name="filename" required="">
+    </div>
 
-</div>
+    <div>
 
-<div?>
-    <label for="varchar">foto</label>
-    <input type="file" name="filename" required="">
+        <label for="varchar">foto</label>
+        <input type="file" name="foto_mhs" required="">
 
     </div>
     <!-- </div> -->
@@ -32,4 +32,4 @@
 
     <?php echo form_close() ?>
 
-    </div>
+</div>
