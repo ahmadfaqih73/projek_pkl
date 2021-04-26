@@ -22,7 +22,7 @@
 
 
             </div>
-            <a href="<?= base_url('TIF/'); ?>" class="btn btn-primary float-left">kembali</a>
+            <a href="<?= base_url('TIF/'); ?>" class="btn btn-primary float-right">kembali</a>
         </div>
     </div>
 </div>
