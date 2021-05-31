@@ -16,68 +16,68 @@ class MIF extends CI_Controller
         //         redirect('auth');
         // }
         // is_logged_in();
-        $this->load->model('Teknik_Informatika');
+        $this->load->model('Manajemen_Informatika');
     }
 
     public function index()
     {
-        $data['title'] = 'Teknik Informatika';
-        $data['mhs_tif'] = $this->Teknik_Informatika->read();
+        $data['title'] = 'Manajemen Informatika';
+        $data['mhs_mif'] = $this->Manajemen_Informatika->read();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Teknik_Informatika/TIF', $data, array('error' => ' '));
+        $this->load->view('Manajemen_Informatika/MIF', $data, array('error' => ' '));
         $this->load->view('templates/footer');
     }
     public function viewadd()
     {
-        $data['title'] = 'Teknik Informatika';
+        $data['title'] = 'Manajemen Informatika';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Teknik_Informatika/add_TIF');
+        $this->load->view('Manajemen_Informatika/add_MIF');
         $this->load->view('templates/footer');
     }
 
     public function add()
     {
-        $this->Teknik_Informatika->insert_tif();
+        $this->Manajemen_Informatika->insert_mif();
         $this->session->set_flashdata('message', '<div class="alert
             alert-danger" role="alert">data succes 
             </div>');
-        redirect('TIF');
+        redirect('MIF');
     }
 
-    public function update_mhs_tif()
+    public function update_mhs_mif()
     {
-        $this->Teknik_Informatika->updateTIF();
+        $this->Manajemen_Informatika->updateMIF();
     }
-    public function hapus_mahasiswa_tif($id)
+    public function hapus_mahasiswa_mif($id)
     {
-        $this->Teknik_Informatika->hapus_mhs_tif($id);
+        $this->Manajemen_Informatika->hapus_mhs_mif($id);
 
         $this->session->set_flashdata('message', '<div class="alert
             alert-danger" role="alert">data succes delete
             </div>');
-        redirect('TIF');
+        redirect('MIF');
     }
 
-    public function lihat_TIF($id)
+    public function lihat_MIF($id)
     {
         $data['title'] = 'Data Mahasiswa';
-        $data['mhs_tif'] = $this->Teknik_Informatika->getMhs_tif($id);
+        $data['mhs_mif'] = $this->Manajemen_Informatika->getMhs_mif($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Teknik_Informatika/detail', $data);
+        $this->load->view('Manajemen_Informatika/detail', $data);
         $this->load->view('templates/footer');
     }
 }
