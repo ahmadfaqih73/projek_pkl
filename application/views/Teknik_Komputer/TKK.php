@@ -4,12 +4,12 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
     <!-- //tampilan data user -->
-    <a href="<?php echo base_url('MIF/viewAdd') ?>" class="btn btn-primary">Add file</a>
+    <a href="<?php echo base_url('TKK/viewAdd') ?>" class="btn btn-primary">Add file</a>
     <br><br>
     <?php
     echo $this->session->flashdata('message');
     ?>
-    <table class="table table-bordered text-center table-hover table-striped" id="tableMIF">
+    <table class="table table-bordered text-center table-hover table-striped" id="tableTKK">
         <thead>
             <tr>
                 <th>No.</th>
@@ -25,7 +25,7 @@
 
             <?php
             $no = 1;
-            foreach ($mhs_mif as $value) {
+            foreach ($mhs_tkk as $value) {
             ?>
                 <tr>
                     <td><?php echo $no ?></td>
@@ -35,7 +35,7 @@
                     <td><?php echo $value['nama_file'] ?></td>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="updateMIF<?= $value['Id_mhs_mif'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="updateTKK<?= $value['Id_mhs_tkk'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -46,12 +46,12 @@
                                 </div>
                                 <div class="modal-body">
 
-                                    <!--                                     <?php echo form_open_multipart('MIF/update_mhs_mif') ?> -->
+                                    <!--                                     <?php echo form_open_multipart('tkk/update_mhs_tkk') ?> -->
 
-                                    <form class="col-md-6" enctype="multipart/form-data" method="post" action="<?php echo base_url('MIF/update_mhs_mif') ?>">
+                                    <form class="col-md-6" enctype="multipart/form-data" method="post" action="<?php echo base_url('TKK/update_mhs_tkk') ?>">
 
                                         <!-- Id Pelanggan -->
-                                        <input type="hidden" name="id" value="<?php echo $value['Id_mhs_mif'] ?>">
+                                        <input type="hidden" name="id" value="<?php echo $value['Id_mhs_tkk'] ?>">
 
                                         <div class="form-group">
                                             <label>Nim</label>
@@ -86,11 +86,11 @@
 
 
                     <td>
-                        <a href="<?= base_url(); ?>MIF/lihat_MIF/<?= $value['Id_mhs_mif']; ?> " class=" fas fa-eye badge badge-primary"> detail</a>
+                        <a href="<?= base_url(); ?>TKK/lihat_TKK/<?= $value['Id_mhs_tkk']; ?> " class=" fas fa-eye badge badge-primary"> detail</a>
 
-                        <a href="" class="fas fa-edit badge badge-pill badge-success" data-toggle="modal" data-target="#updateMIF<?= $value['Id_mhs_mif'] ?>"> edit</a>
+                        <a href="" class="fas fa-edit badge badge-pill badge-success" data-toggle="modal" data-target="#updateTKK<?= $value['Id_mhs_tkk'] ?>"> edit</a>
 
-                        <a href="<?= base_url('MIF/hapus_mahasiswa_mif/' . $value['Id_mhs_mif']) ?> " class="fas fa-trash badge badge-pill badge-danger"> delete</a>
+                        <a href="<?= base_url('TKK/hapus_mahasiswa_tkk/' . $value['Id_mhs_tkk']) ?> " class="fas fa-trash badge badge-pill badge-danger"> delete</a>
                     </td>
 
                     <!-- <td><a href="<?php echo base_url('pelanggan/hapus/' . $value['id_pelanggan']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data pelanggan <?php echo $value['nama_pelanggan'] ?> ?')">Remove</a></td> -->
@@ -114,6 +114,6 @@
 <!-- End of Main Content -->
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#tableMIF').DataTable();
+        $('#tableTKK').DataTable();
     });
 </script>
