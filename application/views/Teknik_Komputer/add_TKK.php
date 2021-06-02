@@ -3,7 +3,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Tambah file</h1>
 
-    <?php echo form_open_multipart('MIF/add') ?>
+    <?php echo form_open_multipart('TKK/add') ?>
 
     <div class="form-group">
         <label>Nim</label>

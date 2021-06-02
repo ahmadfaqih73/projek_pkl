@@ -1,7 +1,7 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="<?= base_url('uploads/') . $mhs_mif['foto']; ?>" class="card-img">
+            <img src="<?= base_url('uploads/') . $mhs_tkk['foto']; ?>" class="card-img">
         </div>
         <div class=" col-md-8">
             <div class="card-body">
@@ -9,20 +9,20 @@
                     Detail data mahasiswa
                 </div>
                 <label><b></b>NIM Mahasiswa</label>
-                <h5 class="card-text"><?= $mhs_mif['nim']; ?></h5>
+                <h5 class="card-text"><?= $mhs_tkk['nim']; ?></h5>
                 <hr>
                 <label>Nama Mahasiswa</label>
-                <h6 class="card-subtitle mb-2 text-muted"><?= $mhs_mif['nama_mahasiswa']; ?></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><?= $mhs_tkk['nama_mahasiswa']; ?></h6>
                 <hr>
                 <label>File</label>
-                <!-- <p class="card-text"><?= $mhs_mif['nama_file']; ?></p> -->
+                <!-- <p class="card-text"><?= $mhs_tkk['nama_file']; ?></p> -->
                 <p class="card-text">
-                    <a class="float-left" target="_blank" href="<?php echo base_url('uploads/' . $mhs_mif['nama_file']) ?>"><?php echo $mhs_mif['nama_file'] ?></a>
+                    <a class="float-left" target="_blank" href="<?php echo base_url('uploads/' . $mhs_tkk['nama_file']) ?>"><?php echo $mhs_tkk['nama_file'] ?></a>
                 </p>
 
 
             </div>
-            <a href="<?= base_url('MIF/'); ?>" class="btn btn-primary float-right">kembali</a>
+            <a href="<?= base_url('TKK/'); ?>" class="btn btn-primary float-right">kembali</a>
         </div>
     </div>
 </div>
@@ -41,18 +41,18 @@
                     Detail data mahasiswa
                 </div>
                 <div class="col-md-4">
-                    <img src="<?= base_url('uploads/') . $mhs_mif['foto']; ?>" class="card-img">
+                    <img src="<?= base_url('uploads/') . $mhs_tkk['foto']; ?>" class="card-img">
                 </div>
                 <div class="card-body">
                     <label><b></b>NIM Mahasiswa</label>
-                    <h5 class="card-text"><?= $mhs_mif['nim']; ?></h5>
+                    <h5 class="card-text"><?= $mhs_tkk['nim']; ?></h5>
                     <hr>
                     <label>Nama Mahasiswa</label>
-                    <h6 class="card-subtitle mb-2 text-muted"><?= $mhs_mif['nama_mahasiswa']; ?></h6>
+                    <h6 class="card-subtitle mb-2 text-muted"><?= $mhs_tkk['nama_mahasiswa']; ?></h6>
                     <hr>
                     <label>File</label>
-                    <p class="card-text"><?= $mhs_mif['nama_file']; ?></p>
-                    <a href="<?= base_url('MIF/'); ?>" class="btn btn-primary">kembali</a>
+                    <p class="card-text"><?= $mhs_tkk['nama_file']; ?></p>
+                    <a href="<?= base_url('TKK/'); ?>" class="btn btn-primary">kembali</a>
                 </div>
             </div>
 
