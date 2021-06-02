@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `kategori_sm`
+--
+
+DROP TABLE IF EXISTS `kategori_sm`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kategori_sm` (
+  `id_kategorism` int(11) NOT NULL AUTO_INCREMENT,
+  `kategori` enum('Undangan','Surat Tugas','SK Direktur') NOT NULL,
+  PRIMARY KEY (`id_kategorism`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kategori_sm`
+--
+
+LOCK TABLES `kategori_sm` WRITE;
+/*!40000 ALTER TABLE `kategori_sm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kategori_sm` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `mhs_mif`
 --
 
@@ -96,6 +119,32 @@ LOCK TABLES `mhs_tkk` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `surat_masuk`
+--
+
+DROP TABLE IF EXISTS `surat_masuk`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `surat_masuk` (
+  `id_sm` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kategorism` int(11) NOT NULL,
+  `judul_surat` int(11) NOT NULL,
+  `file_surat` int(11) NOT NULL,
+  PRIMARY KEY (`id_sm`),
+  KEY `id_kategorism` (`id_kategorism`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `surat_masuk`
+--
+
+LOCK TABLES `surat_masuk` WRITE;
+/*!40000 ALTER TABLE `surat_masuk` DISABLE KEYS */;
+/*!40000 ALTER TABLE `surat_masuk` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -137,7 +186,7 @@ CREATE TABLE `user_access_menu` (
   `role_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +195,7 @@ CREATE TABLE `user_access_menu` (
 
 LOCK TABLES `user_access_menu` WRITE;
 /*!40000 ALTER TABLE `user_access_menu` DISABLE KEYS */;
-INSERT INTO `user_access_menu` VALUES (1,1,1),(2,1,2),(3,2,2),(5,2,3),(6,1,3),(8,1,7);
+INSERT INTO `user_access_menu` VALUES (1,1,1),(2,1,2),(3,2,2),(5,2,3),(6,1,3),(8,1,7),(9,1,8),(10,1,9);
 /*!40000 ALTER TABLE `user_access_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +210,7 @@ CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menu` varchar(126) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +219,7 @@ CREATE TABLE `user_menu` (
 
 LOCK TABLES `user_menu` WRITE;
 /*!40000 ALTER TABLE `user_menu` DISABLE KEYS */;
-INSERT INTO `user_menu` VALUES (1,'admin'),(2,'user'),(3,'Menu'),(7,'Teknologi Informasi');
+INSERT INTO `user_menu` VALUES (1,'admin'),(2,'user'),(3,'Menu'),(7,'Teknologi Informasi'),(8,'Surat Keluar'),(9,'Surat Masuk');
 /*!40000 ALTER TABLE `user_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +262,7 @@ CREATE TABLE `user_sub_menu` (
   `icon` varchar(128) NOT NULL,
   `is_active` int(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +271,7 @@ CREATE TABLE `user_sub_menu` (
 
 LOCK TABLES `user_sub_menu` WRITE;
 /*!40000 ALTER TABLE `user_sub_menu` DISABLE KEYS */;
-INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1);
+INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1),(14,9,'Undangan','Undangan','fab fa-mailchimp',1),(15,9,'Surat Tugas','Surat_Masuk','fas fa-reply',1),(16,9,'SK Direktur','Sk_Direktur','fas fa-voicemail',1);
 /*!40000 ALTER TABLE `user_sub_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -235,4 +284,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02  9:32:24
+-- Dump completed on 2021-06-02 20:54:43
