@@ -76,7 +76,7 @@
         <?php endforeach; ?>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 <span>Log out</span></a>
         </li>
 
