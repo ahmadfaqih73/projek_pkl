@@ -38,7 +38,7 @@ class TIF extends CI_Controller
                 $this->session->userdata('email')])->row_array();
 
                 $this->load->view('templates/header', $data);
-                $this->load->view('templates/sidebar', $data);
+                $this->load->view('tempslates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('Teknik_Informatika/add_TIF');
                 $this->load->view('templates/footer');

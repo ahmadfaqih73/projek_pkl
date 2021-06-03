@@ -15,13 +15,13 @@ class Teknik_Informatika extends CI_Model
 	{
 		$nim         = $this->input->post('Nim');
 		$nama_mahasiswa         = $this->input->post('Nama_mhs');
-		$filename  = $this->upload_file();
+		// $filename  = $this->upload_file();
 		$foto = $this->upload_foto();
 
 		$data = array(
 			'nim' => $nim,
 			'nama_mahasiswa' => $nama_mahasiswa,
-			'nama_file' => $filename,
+			// 'nama_file' => $filename,
 			'foto' => $foto
 		);
 		// var_dump($data);
@@ -90,7 +90,7 @@ class Teknik_Informatika extends CI_Model
 		$data = array(
 			'nim' 			 => $nim,
 			'nama_mahasiswa' => $nama_mahasiswa,
-			'nama_file' 	 => $filename,
+			// 'nama_file' 	 => $filename,
 			'foto' => $foto
 		);
 		// var_dump($data);

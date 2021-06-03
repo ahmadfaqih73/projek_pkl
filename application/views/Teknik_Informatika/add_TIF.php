@@ -15,10 +15,10 @@
         <input type="text" class="form-control" name="Nama_mhs" required="">
     </div>
     <!-- <div class="form-group"> -->
-    <div>
+    <!-- <div>
         <label for="varchar">Nama file</label>
         <input type="file" name="filename" required="">
-    </div>
+    </div> -->
 
     <div>
 
