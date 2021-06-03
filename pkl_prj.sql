@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.21-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
--- Host: localhost    Database: localhost
+-- Host: localhost    Database: coba_pkl
 -- ------------------------------------------------------
--- Server version	10.1.21-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,50 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `jenis_surat`
+-- Table structure for table `kategori_surat`
 --
 
-DROP TABLE IF EXISTS `jenis_surat`;
+DROP TABLE IF EXISTS `kategori_surat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `jenis_surat` (
-  `id_jenis surat` int(11) NOT NULL AUTO_INCREMENT,
-  `jenis_surat` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_jenis surat`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jenis_surat`
---
-
-LOCK TABLES `jenis_surat` WRITE;
-/*!40000 ALTER TABLE `jenis_surat` DISABLE KEYS */;
-INSERT INTO `jenis_surat` VALUES (1,'surat undangan'),(2,'surat Akademi');
-/*!40000 ALTER TABLE `jenis_surat` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `kategori_sm`
---
-
-DROP TABLE IF EXISTS `kategori_sm`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `kategori_sm` (
-  `id_kategorism` int(11) NOT NULL AUTO_INCREMENT,
-  `kategori` enum('Undangan','Surat Tugas','SK Direktur') NOT NULL,
-  PRIMARY KEY (`id_kategorism`)
+CREATE TABLE `kategori_surat` (
+  `id_kategori_surat` int(11) NOT NULL,
+  `kategori` enum('Surat Masuk Undangan') DEFAULT NULL,
+  PRIMARY KEY (`id_kategori_surat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kategori_sm`
+-- Dumping data for table `kategori_surat`
 --
 
-LOCK TABLES `kategori_sm` WRITE;
-/*!40000 ALTER TABLE `kategori_sm` DISABLE KEYS */;
-/*!40000 ALTER TABLE `kategori_sm` ENABLE KEYS */;
+LOCK TABLES `kategori_surat` WRITE;
+/*!40000 ALTER TABLE `kategori_surat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kategori_surat` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -103,7 +79,7 @@ CREATE TABLE `mhs_tif` (
   `nama_file` varchar(255) DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Id_mhs_tif`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +88,7 @@ CREATE TABLE `mhs_tif` (
 
 LOCK TABLES `mhs_tif` WRITE;
 /*!40000 ALTER TABLE `mhs_tif` DISABLE KEYS */;
-INSERT INTO `mhs_tif` VALUES (12,'sgs','fhfh','3671_PL17PP_20211.pdf','Logo_Garuda.png');
+INSERT INTO `mhs_tif` VALUES (12,'sgs','fhfh','3671_PL17PP_20211.pdf','Logo_Garuda.png'),(13,'E41202543','Bu Novi Donk',NULL,'tutor_mas_hariz2.PNG'),(14,'E41209876','Bu Novi Nakal',NULL,'tutor_mas_hariz3.PNG');
 /*!40000 ALTER TABLE `mhs_tif` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,12 +126,15 @@ DROP TABLE IF EXISTS `surat_keluar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `surat_keluar` (
-  `id_surat` int(11) NOT NULL AUTO_INCREMENT,
+  `id_suratkeluar` int(11) NOT NULL,
   `jenis_surat` int(11) DEFAULT NULL,
   `file_surat` varchar(255) DEFAULT NULL,
   `deskripsi_surat` varchar(255) DEFAULT NULL,
   `tanggal_surat_keluar` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id_surat`)
+  `id_kategori` int(11) DEFAULT NULL,
+  `judul_surat` varchar(255) DEFAULT NULL,
+  `deskripsi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_suratkeluar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -176,12 +155,15 @@ DROP TABLE IF EXISTS `surat_masuk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `surat_masuk` (
-  `id_sm` int(11) NOT NULL AUTO_INCREMENT,
-  `id_kategorism` int(11) NOT NULL,
-  `judul_surat` int(11) NOT NULL,
-  `file_surat` int(11) NOT NULL,
-  PRIMARY KEY (`id_sm`),
-  KEY `id_kategorism` (`id_kategorism`)
+  `id_suratmasuk` int(11) NOT NULL,
+  `jenis_surat` int(11) DEFAULT NULL,
+  `file_surat` varchar(255) DEFAULT NULL,
+  `deskripsi_surat` varchar(255) DEFAULT NULL,
+  `tanggal_surat_masuk` date DEFAULT NULL,
+  `id_kategori` int(11) DEFAULT NULL,
+  `judul_surat` varchar(255) DEFAULT NULL,
+  `deskripsi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_suratmasuk`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -321,7 +303,7 @@ CREATE TABLE `user_sub_menu` (
 
 LOCK TABLES `user_sub_menu` WRITE;
 /*!40000 ALTER TABLE `user_sub_menu` DISABLE KEYS */;
-INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1),(14,9,'Undangan','Undangan','fab fa-mailchimp',1),(15,9,'Surat Tugas','Surat_Masuk','fas fa-reply',1),(16,9,'SK Direktur','Sk_Direktur','fas fa-voicemail',1);
+INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1),(14,9,'Undangan','Surat_masuk/surat_masuk','fab fa-mailchimp',1),(15,9,'Surat Tugas','Surat_Masuk','fas fa-reply',1),(16,9,'SK Direktur','Sk_Direktur','fas fa-voicemail',1);
 /*!40000 ALTER TABLE `user_sub_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -334,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-03 12:59:55
+-- Dump completed on 2021-06-03 22:04:51
