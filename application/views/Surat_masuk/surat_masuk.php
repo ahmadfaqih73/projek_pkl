@@ -35,11 +35,6 @@
                     <td><?php echo $value['deskripsi_surat'] ?></td>
                     <td><?php echo $value['tanggal_surat_masuk'] ?></td>
 
-
-
-
-
-
                     <!-- <td><a href="<?php echo base_url('pelanggan/hapus/' . $value['id_pelanggan']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data pelanggan <?php echo $value['nama_pelanggan'] ?> ?')">Remove</a></td> -->
                 </tr>
             <?php $no++;

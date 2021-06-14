@@ -173,6 +173,7 @@ CREATE TABLE `surat_masuk` (
 
 LOCK TABLES `surat_masuk` WRITE;
 /*!40000 ALTER TABLE `surat_masuk` DISABLE KEYS */;
+INSERT INTO `surat_masuk` VALUES (0,NULL,'gdgdgdgd','tatayauuaua',NULL,NULL,NULL,NULL),(1,NULL,'gdgdgd','sgsgsgs','2021-06-07',NULL,NULL,NULL),(3,NULL,'Bu Novi Nakal',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `surat_masuk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +304,7 @@ CREATE TABLE `user_sub_menu` (
 
 LOCK TABLES `user_sub_menu` WRITE;
 /*!40000 ALTER TABLE `user_sub_menu` DISABLE KEYS */;
-INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1),(14,9,'Undangan','Surat_masuk/surat_masuk','fab fa-mailchimp',1),(15,9,'Surat Tugas','Surat_Masuk','fas fa-reply',1),(16,9,'SK Direktur','Sk_Direktur','fas fa-voicemail',1);
+INSERT INTO `user_sub_menu` VALUES (1,1,'Dashboard','admin','fas fa-fw fa-tachometer-alt',1),(2,2,'My Profile','user','fas fa-fw fa-user',1),(3,2,'Edit Profile','user/edit','fas fa-fw fa-user-edit',1),(4,3,'Menu Management','menu','fas  fa-fw fa-folder',1),(5,3,'Submenu Management','menu/submenu','fas fa-fw fa-folder-open',1),(7,1,'coba','menu/coba','fas fa-fw fw-folder',1),(9,1,'Role','admin/role','fas fa-fw fa-user-tie',1),(10,7,'Teknik Informatika','TIF','fas fa-fw fa-microchip',1),(12,7,'Manajemen Informatika','MIF','fas fa-laptop-code',1),(13,7,'Teknik Komputer','TKK','fas fa-cogs',1),(14,9,'Undangan','Surat_masuk/index','fab fa-mailchimp',1),(15,9,'Surat Tugas','Surat_Masuk','fas fa-reply',1),(16,9,'SK Direktur','Sk_Direktur','fas fa-voicemail',1);
 /*!40000 ALTER TABLE `user_sub_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -316,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-03 22:04:51
+-- Dump completed on 2021-06-14 20:25:44
